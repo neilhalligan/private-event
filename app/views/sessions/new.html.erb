@@ -1,0 +1,7 @@
+<%= form_for(:session) do |f| %>
+
+  <%= f.label :email %>
+  <%= f.email_field :email, class: 'form-control' %>
+
+  <%= f.button "submit", class: "btn btn-primary", method: :post, data: {disable_with: "<i class='fa fa-spinner fa-spin'></i>Signing in"} %>
+<%end%>
