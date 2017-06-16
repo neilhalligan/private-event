@@ -13,3 +13,5 @@ end
 10.times do |n|
   User.create!(name: Faker::GameOfThrones.character, email: Faker::Internet.email)
 end
+
+u.attended_events << u.hosted_events.take(2)

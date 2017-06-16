@@ -16,6 +16,9 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @prev_events = @user.attended_events.where("date < ?", Date.today)
     @upcoming_events = @user.attended_events.where("date > ?", Date.today)
+    # @invited_events = @user.attended_events.where(activated: false)
+    # @invited_events = @user.attended_events.joins(:attendances).merge(Attendance.unactivated)
+    @attendances_pending = @user.attendances.where(activated: false)
   end
 
   def login

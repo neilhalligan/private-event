@@ -2,13 +2,23 @@
 <p>Find me in app/views/users/show.html.erb</p>
 <h4>Hosted Events</h4>
 <% @user.hosted_events.each do |hosted_event| -%>
-<li><%= hosted_event.description %></li>
+  <li><%= hosted_event.description %></li>
 <% end %>
 <h4>Upcoming Events</h4>
 <% @upcoming_events.each do |upcoming_event| -%>
-<li><%= upcoming_event.description %></li>
+  <li><%= upcoming_event.description %></li>
 <% end %>
 <h4>Previous Events</h4>
 <% @prev_events.each do |prev_event| -%>
-<li><%= prev_event.description %></li>
+  <li><%= prev_event.description %></li>
+<% end %>
+<% if current_user? %>
+  <h4>Open Invitations</h4>
+    <% @attendances_pending.each do |attendance_pending| %>
+    <li><%= attendance_pending.event.description %></li>
+    <%= simple_form_for attendance_pending, url: attendance_path, method: :patch do |f| %>
+    <%= f.hidden_field :activated, value: true %>
+    <%= f.button :submit, "accept invitation" %>
+  <% end %>
+  <% end %>
 <% end %>
