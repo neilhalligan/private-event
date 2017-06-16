@@ -1,0 +1,10 @@
+<h1>Events#index</h1>
+<p>Find me in app/views/events/index.html.erb</p>
+<h4>Future Events</h4>
+<% @future_events.each do |future_event| %>
+  <%= link_to future_event.description, event_path(future_event) %>
+<% end %>
+<h4>Past Events</h4>
+<% @past_events.each do |past_event| %>
+  <%= link_to past_event.description, event_path(past_event) %>
+<% end %>

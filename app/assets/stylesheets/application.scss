@@ -1,0 +1,21 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+.nav-links {
+  background-color: #888;
+  color: white;
+  padding: 1em 0;
+  // float: right;
+  // display: block;
+  // font-size: 5em;
+}
+
+.nav-links a {
+  color: white;
+}
+
+.nav-links li {
+  float: right;
+  padding: 0 1em;
+  list-style: none;
+}

@@ -1,3 +1,14 @@
 <h1>Users#show</h1>
 <p>Find me in app/views/users/show.html.erb</p>
-<p><% @user.name if logged_in? %></p>
+<h4>Hosted Events</h4>
+<% @user.hosted_events.each do |hosted_event| -%>
+<li><%= hosted_event.description %></li>
+<% end %>
+<h4>Upcoming Events</h4>
+<% @upcoming_events.each do |upcoming_event| -%>
+<li><%= upcoming_event.description %></li>
+<% end %>
+<h4>Previous Events</h4>
+<% @prev_events.each do |prev_event| -%>
+<li><%= prev_event.description %></li>
+<% end %>

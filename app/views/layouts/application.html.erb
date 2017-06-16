@@ -9,6 +9,17 @@
   </head>
 
   <body>
+  <header class="header">
+    <nav class="nav-header nav-links">
+      <ul>
+        <li><%= link_to "Home", root_path %></li>
+        <li><%= link_to "login", login_path %></li>
+        <li><%= link_to "new user", new_user_path %></li>
+        <li><%= link_to "events", events_path %></li>
+      </ul>
+    </nav>
+  </header>
+  <%= render 'layouts/flash'%>
   <p><%= current_user.name if logged_in? %>
     <%= yield %>
   </body>

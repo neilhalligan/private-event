@@ -1,0 +1,21 @@
+<p>Event creator: <%= @event.creator.name %></p>
+<h4>Event attendees</h4>
+<ul>
+<% @event.attendees.each do |attendee| %>
+  <li><%= attendee.name %></li>
+<% end %>
+</ul>
+<%= simple_form_for @attendance do |f| %>
+  <%= f.hidden_field :event_id, value: @event.id %>
+  <%= f.input :attendee_id, collection: @inviteable_users, prompt: "select user" %>
+  <%= f.button :submit, "Invite", class: 'btn btn-primary' %>
+<% end %>
+
+<%#= form_for(@attendances)  do |f| %>
+
+<%# f.label :atendee_id %>
+<%# f.text_field :atendee_id, class: 'form-control' %>
+
+<%# f.submit 'submit', class: 'btn btn-primary'%>
+<%# end %>
+

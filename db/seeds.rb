@@ -5,3 +5,11 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+u = User.create!(name: "neil halligan", email: "neilhalligan@gmail.com")
+10.times do |n|
+  u.hosted_events.create!(description: "Wezz 0#{n}", date: Faker::Date.between(2.days.ago, Date.tomorrow))
+end
+
+10.times do |n|
+  User.create!(name: Faker::GameOfThrones.character, email: Faker::Internet.email)
+end
